@@ -19,7 +19,7 @@ garbagefloor = floor.floor(150, 5, 1720, 280)
 floorobjects = [mainfloor, boxfloor, tirefloor, box2floor, box3floor, garbagefloor]
 floors = [mainfloor.surface, boxfloor.surface, tirefloor.surface, box2floor.surface, box3floor.surface, garbagefloor.surface]
 floorrects = [mainfloor.rect, boxfloor.rect, tirefloor.rect, box2floor.rect, box3floor.rect, garbagefloor.rect]
-def update(objects):
+def update(objects): #objects contains an array of players and an array of active consumables
     global counter
     global special_counter
     counter = counter + 1
@@ -28,7 +28,7 @@ def update(objects):
     players = objects[0]    
     if len(objects) > 1:
         consumables = objects[1]
-        for consumable in consumables:
+        for consumable in consumables: #handles the effects when players walk into consumables
             if not consumable.isConsumed:
                 for player in players:
                     if player.check_collision(consumable):
@@ -43,7 +43,7 @@ def update(objects):
                     consumable.down()  
                 screen.blit(consumable.border, consumable.rect)
                 screen.blit(consumable.image, consumable.rect)
-    for player in players:
+    for player in players: #makes players get affected by gravity, updates players' frames, knockback, healing
         if not player.grounded() and not player.jumping:
             player.down()
         elif player.grounded():

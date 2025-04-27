@@ -13,8 +13,6 @@ player_2_string = ""
 pvp_displays = ["Images/werewolf_white/Dead/Dead_2.png", "Images/vampire_countess/Attack_1/Attack_1_3.png", "Images/gangsters_1/Attack_1/Attack_1_1.png", "Images/fighter/Walk/Walk_1.png"]
 folders = ["/werewolf_white", "/vampire_countess", "/gangsters_1", "/fighter"]
 start_screen = pygame.display.set_mode((1980, 1080))
-# pygame.mixer.music.load("DropIt.mp3")
-
 #loading screen images-----------------
 vs_player_image = pygame.image.load("Images/homeless_man/Idle_2/Idle_2_6.png")
 vs_bot_image = pygame.image.load("Images/homeless_woman/Attack_1/Attack_1_10.png")
@@ -123,8 +121,6 @@ while running_play_again:
         enemy.facing_forward = -1
         alive_stuff.append([p1, enemy])
     #--------------------------------------------------------
-
-    # pygame.mixer.music.play()
 
     #main game loop---------------------------------------
     while running:
@@ -246,23 +242,6 @@ while running_play_again:
                                     enemy.got_hit("right", p1.special_damage, 1)
                                 else:
                                     enemy.got_hit("left", p1.special_damage, 1)
-                        # if mode == "player"
-                        #     if p1.check_collision(p2):
-                        #         if p1.rect.left < p2.rect.left:
-                        #             p2.got_hit("right", p1.special_damage, 1)
-                        #             p1.got_hit("left", 0, 1)
-                        #         else:
-                        #             p2.got_hit("left", p1.special_damage, 1)
-                        #             p1.got_hit("right", 0, 1)
-                        # elif mode == "bot":
-                        #     if p1.check_collision(enemy):
-                        #         if p1.rect.left < enemy.rect.left:
-                        #             enemy.got_hit("right", p1.special_damage, 1)
-                        #             p1.got_hit("left", 0, 1)
-                        #         else:
-                        #             enemy.got_hit("left", p1.special_damage, 1)
-                        #             p1.got_hit("right", 0, 1)
-
             #-----------------
 
             #big and small jumps----
@@ -391,23 +370,6 @@ while running_play_again:
                                         enemy.got_hit("right", p2.special_damage, 1)
                                     else:
                                         enemy.got_hit("left", p2.special_damage, 1)
-
-                        # if mode == "player":
-                        #     if p1.check_collision(p2):
-                        #         if p1.rect.left < p2.rect.left:
-                        #             p2.got_hit("right", p1.special_damage, 1)
-                        #             p1.got_hit("left", 0, 1)
-                        #         else:
-                        #             p2.got_hit("left", p1.special_damage, 1)
-                        #             p1.got_hit("right", 0, 1)
-                        # elif mode == "bot":
-                        #     if p1.check_collision(enemy):
-                        #         if p1.rect.left < enemy.rect.left:
-                        #             enemy.got_hit("right", p1.special_damage, 1)
-                        #             p1.got_hit("left", 0, 1)
-                        #         else:
-                        #             enemy.got_hit("left", p1.special_damage, 1)
-                        #             p1.got_hit("right", 0, 1)
                 #-----------------
 
                 #big and small jumps----
@@ -434,7 +396,7 @@ while running_play_again:
                     p2.idle() 
         #---------------------------------------
 
-        #bot logic--------------VERY BUGGED------   
+        #bot logic-------------------------------   
         if mode == "bot":
             if enemy.jumping:
                 enemy.jump()
@@ -528,7 +490,6 @@ while running_play_again:
             #--------------------------
         #-------------------------------------
     #--------------------------------------------
-    pygame.mixer.music.stop()
     
     #play again screen---------------------------
     while running_decide_play_again:

@@ -241,7 +241,6 @@ class player(pygame.sprite.Sprite):
         self.image = pygame.image.load("Images" + self.image_folder + "/Attack_1/Attack_1_" + str((config.counter % self.attack_1_frames + 1)) + ".png")
         if self.facing_forward == -1:
             self.image = pygame.transform.flip(self.image, True, False)
-        #self.rect = self.rect.move([self.facing_forward * 5, 0])
         self.mask = pygame.mask.from_surface(self.image)
         config.screen.blit(self.image, self.rect)
         pygame.display.flip()
@@ -269,14 +268,6 @@ class player(pygame.sprite.Sprite):
             self.image = pygame.transform.flip(self.image, True, False)
         self.down()
             
-
-    def hurt(self, i):
-        pygame.time.delay(50)
-        self.image = pygame.image.load("Images" + self.image_folder + "/Hurt/Hurt_" + str(i + 1) + ".png")
-        if self.facing_forward == -1:
-            self.image = pygame.transform.flip(self.image, True, False)
-        
-            
     def idle(self):
         self.image = pygame.image.load(self.idle_sequence[config.counter % len(self.idle_sequence)])
         if self.facing_forward == -1:
@@ -286,7 +277,7 @@ class player(pygame.sprite.Sprite):
 
     def grounded(self):
         grounded = False
-        #false moves down, true doesn't move
+        # false means not grounded and player moves down, true doesn't move
         for floor in config.floorobjects:
             if (self.rect.bottom < floor.rect.top):
                 grounded = False 
