@@ -1,3 +1,4 @@
+pip install pygame
 Run test.py in pygame folder.
 In the first display, clicking on the left icon starts player vs. player mode while the right side starts player vs. computer mode.
 In player vs. player mode click on one character icon on each side before clicking the middle icon to start the game. 
